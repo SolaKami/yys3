@@ -10,8 +10,11 @@ class RegisterEngine:
 
     # ratex = 1.50
     # ratey = 1.50
-    #
     # ospath = 'mac_win10_deskapp'
+
+    # ratex = 0
+    # ratey = 0
+    # ospath = ''
 
     def __init__(self):
         config = configparser.ConfigParser()
@@ -23,8 +26,8 @@ class RegisterEngine:
             self.mastermode = baseenum.RobotMode.slavemode
 
         self.ospath = config['yys']['ospath']
-        self.ratex = config['yys']['ratex']
-        self.ratey = config['yys']['ratey']
+        self.ratex = float(config['yys']['ratex'])
+        self.ratey = float(config['yys']['ratey'])
 
         print("mode:",self.mastermode)
         print("path:",self.ospath)
