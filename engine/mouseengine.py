@@ -1,5 +1,6 @@
 from pymouse import PyMouse
 from base import log
+import time
 
 class MouseEngine:
 
@@ -29,9 +30,11 @@ class MouseEngine:
 
     # slide
     def slide_down(self, x, y, h):
+        log.log("move and location x,y '%s, %s' " % (x, y))
         m = PyMouse()
         m.move(x, y)
         m.press(x, y, 1)
+        time.sleep(1)
         m.move(x, y + h)
         m.release(x, y + h, 1)
         return

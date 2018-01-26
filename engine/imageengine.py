@@ -65,13 +65,13 @@ class ImageEngine:
                 x = 0
                 y = 0
             log.log("image name is '%s' and similar value is '%s' and x,y is '%s,%s'" % (imagename, value, x, y))
+            self.registerengine.lastlastx = self.registerengine.lastx
+            self.registerengine.lastlasty = self.registerengine.lasty
             self.registerengine.lastx = x
             self.registerengine.lasty = y
             return x
         except:
             return 0
-
-
 
 
 

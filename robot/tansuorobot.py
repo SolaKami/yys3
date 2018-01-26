@@ -1,29 +1,80 @@
 from engine import imageengine
 from engine import mouseengine
 from engine import registerengine
+from engine import gundongengine
 from base import baseenum
 from base import log
+import time
 
 
 class TanSuoRobot:
 
-    def __init__(self,  mastermode, countlimit):
-        # master or slave or self mode
-        # 1-master
-        # 2-slave
-        # 3-self
-        self.masterMode = mastermode
-        # for control battle count
-        self.countLimit = countlimit
-        # current battle count
-        self._currentCount = 0
-
+    def __init__(self, countlimit):
         # engine initial
         self.registerengine = registerengine.RegisterEngine()
         self.imageengine = imageengine.ImageEngine( self.registerengine)
         self.mouseengine = mouseengine.MouseEngine(self.registerengine)
 
+        # master or slave or self mode
+        # 1-master
+        # 2-slave
+        # 3-self
+        self.masterMode = self.registerengine.mastermode
+        # for control battle count
+        self.countLimit = countlimit
+        # current battle count
+        self._currentCount = 0
+
         return
+
+
+    def tansuo(self):
+        log.log("tansuo start")
+        while (self._currentCount < self.countLimit):
+            if False:
+                pass
+            elif self.imageengine.find_picture("win"):
+                self.mouseengine.clickdefault()
+            elif self.imageengine.find_picture("zhunbei"):
+                self.mouseengine.clickdefault()
+            elif self.imageengine.find_picture("showspoils"):
+                self.mouseengine.clickdefault()
+            elif self.imageengine.find_picture("endbattle"):
+                self.mouseengine.clickdefault()
+            elif self.imageengine.find_picture("baoxiang"):
+                self.mouseengine.clickdefault()
+            elif self.imageengine.find_picture("ditubaoxiang"):
+                self.mouseengine.clickdefault()
+            else:
+                if self.masterMode == baseenum.RobotMode.mastermode:
+                    if self.imageengine.find_picture("zhangjie"):
+                        if self.imageengine.find_picture("zhangjie8"):
+                            self.mouseengine.clickdefault()
+                        else:
+                            # 在章节页面，但是没有找到指定章节时，滚动一下
+                            gundongengine.slide_up(self.registerengine.lastlastx,self.registerengine.lastlasty,-300)
+                    elif self.imageengine.find_picture("boss"):
+                        self.mouseengine.clickdefault()
+                        time.sleep(2)
+                        self._currentCount += 1
+                    elif self.imageengine.find_picture("xiaoguai"):
+                        self.mouseengine.clickdefault()
+                        time.sleep(2)
+                        self._currentCount += 1
+                    #没有找到敌人时，但是又在副本里面时走一步
+                    elif self.imageengine.find_picture("suodingchuzhan"):
+                        self.mouseengine.clickadddefault(0, -80)
+                        time.sleep(1)
+                    elif self.imageengine.find_picture("yaoqingzudui"):
+                        # 每次组队前等待10s，防止被鬼使黑
+                        time.sleep(10)
+                        self.mouseengine.clickdefault()
+                if self.masterMode == baseenum.RobotMode.slavemode:
+                    pass
+        log.log("tansuo end")
+
+
+
 
     def start(self):
         log.log("start")
