@@ -38,7 +38,7 @@ class TanSuoRobot:
             elif self.imageengine.find_picture("zhunbei"):
                 self.mouseengine.clickdefault()
             elif self.imageengine.find_picture("showspoils"):
-                self.mouseengine.clickdefault()
+                self.mouseengine.clickadddefault(0, 500)
             elif self.imageengine.find_picture("endbattle"):
                 self.mouseengine.clickdefault()
             elif self.imageengine.find_picture("baoxiang"):
@@ -50,7 +50,7 @@ class TanSuoRobot:
                     if self.imageengine.find_picture("zhangjie"):
                         if self.imageengine.find_picture("zhangjie8"):
                             # 每打3把，暂停30秒
-                            if self._currentCount%3 == 0:
+                            if self._currentCount > 1 and self._currentCount%3 == 0:
                                 time.sleep(30)
                             else:
                                 time.sleep(5)
@@ -73,7 +73,8 @@ class TanSuoRobot:
                     elif self.imageengine.find_picture("yaoqingzudui"):
                         self.mouseengine.clickdefault()
                 if self.masterMode == baseenum.RobotMode.slavemode:
-                    pass
+                    if self.imageengine.find_picture("yes"):
+                        self.mouseengine.clickdefault()
         log.log("tansuo end")
 
 

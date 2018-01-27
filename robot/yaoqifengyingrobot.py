@@ -73,10 +73,12 @@ class YaoqifengyingRobot:
     def startshiju(self):
         while (self._currentCount < self.countLimit):
             ret = 0
-            if self.shiju():
+            if self.imageengine.find_picture("shiju"):
                 ret = self.mouseengine.clickadddefault(600, 36)
-            elif self.fennudeshiju():
+            elif self.imageengine.find_picture("fennudeshiju"):
                 ret = self.mouseengine.clickadddefault(600, 36)
+            elif self.imageengine.find_picture("zzfennudeshiju"):
+                self.mouseengine.clickdefault()
             if ret:
                 self._currentCount += 1
                 time.sleep(0.5)
