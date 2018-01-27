@@ -60,15 +60,19 @@ class ImageEngine:
                 # resize location if macos
                 x = int(x / self.registerengine.ratex)
                 y = int(y / self.registerengine.ratey)
-
+                self.registerengine.lastlastpic = self.registerengine.lastpic
+                self.registerengine.lastpic = imagename
             else:
                 x = 0
                 y = 0
             log.log("image name is '%s' and similar value is '%s' and x,y is '%s,%s'" % (imagename, value, x, y))
             self.registerengine.lastlastx = self.registerengine.lastx
             self.registerengine.lastlasty = self.registerengine.lasty
+
             self.registerengine.lastx = x
             self.registerengine.lasty = y
+
+
             return x
         except:
             return 0

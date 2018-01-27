@@ -4,9 +4,20 @@ import time
 
 class MouseEngine:
 
+    repeatcount = 0
+
     # initial function
     def __init__(self,registerengine):
         self.registerengine = registerengine
+
+    def repetverify(self):
+        if self.registerengine.lastpic == self.registerengine.lastlastpic:
+            self.repeatcount += 1
+        else:
+            self.repeatcount = 0
+        if self.repeatcount > -1:
+            log.log("repeat click count is %s ,repeat name is %s" % (self.repeatcount, self.registerengine.lastpic))
+            time.sleep(self.repeatcount)
 
     # default click, click the location find
     def clickdefault(self):
@@ -17,6 +28,7 @@ class MouseEngine:
 
     # base click by x y
     def leftclick(self,x,y):
+        self.repetverify()
         m = PyMouse()
         m.move(x, y)
         m.click(x, y, 1)

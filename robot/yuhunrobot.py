@@ -51,6 +51,8 @@ class YuhunRobot:
                     self.mouseengine.clickdefault()
                 elif self.imageengine.find_picture("yes"):
                     self.mouseengine.clickdefault()
+                elif self.imageengine.find_picture("zidongkaishi"):
+                    self.mouseengine.clickdefault()
             if self.masterMode == baseenum.RobotMode.selfmode:
                 if self.imageengine.find_picture("tiaozhan"):
                     self.mouseengine.clickdefault()

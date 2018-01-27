@@ -7,6 +7,8 @@ class RegisterEngine:
     lasty = 0
     lastlastx = 0
     lastlasty = 0
+    lastpic = ''
+    lastlastpic = ''
 
     # ratex = 1.50
     # ratey = 1.50
