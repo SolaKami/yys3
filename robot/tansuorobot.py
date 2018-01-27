@@ -49,25 +49,28 @@ class TanSuoRobot:
                 if self.masterMode == baseenum.RobotMode.mastermode:
                     if self.imageengine.find_picture("zhangjie"):
                         if self.imageengine.find_picture("zhangjie8"):
+                            # 每打3把，暂停30秒
+                            if self._currentCount%3 == 0:
+                                time.sleep(30)
+                            else:
+                                time.sleep(5)
                             self.mouseengine.clickdefault()
+                            self._currentCount += 1
                         else:
                             # 在章节页面，但是没有找到指定章节时，滚动一下
                             gundongengine.slide_up(self.registerengine.lastlastx,self.registerengine.lastlasty,-300)
                     elif self.imageengine.find_picture("boss"):
                         self.mouseengine.clickdefault()
                         time.sleep(2)
-                        self._currentCount += 1
                     elif self.imageengine.find_picture("xiaoguai"):
                         self.mouseengine.clickdefault()
                         time.sleep(2)
-                        self._currentCount += 1
+
                     #没有找到敌人时，但是又在副本里面时走一步
                     elif self.imageengine.find_picture("suodingchuzhan"):
                         self.mouseengine.clickadddefault(0, -80)
                         time.sleep(1)
                     elif self.imageengine.find_picture("yaoqingzudui"):
-                        # 每次组队前等待10s，防止被鬼使黑
-                        time.sleep(10)
                         self.mouseengine.clickdefault()
                 if self.masterMode == baseenum.RobotMode.slavemode:
                     pass

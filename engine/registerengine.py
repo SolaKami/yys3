@@ -24,6 +24,8 @@ class RegisterEngine:
             self.mastermode = baseenum.RobotMode.mastermode
         elif mode == "slave":
             self.mastermode = baseenum.RobotMode.slavemode
+        elif mode == "self":
+            self.mastermode = baseenum.RobotMode.selfmode
 
         self.ospath = config['yys']['ospath']
         self.ratex = float(config['yys']['ratex'])

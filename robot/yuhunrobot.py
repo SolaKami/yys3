@@ -47,11 +47,15 @@ class YuhunRobot:
                 elif self.imageengine.find_picture("morenyaoqing"):
                     self.mouseengine.clickdefault()
             if self.masterMode == baseenum.RobotMode.slavemode:
-
                 if self.imageengine.find_picture("allyes"):
                     self.mouseengine.clickdefault()
                 elif self.imageengine.find_picture("yes"):
                     self.mouseengine.clickdefault()
+            if self.masterMode == baseenum.RobotMode.selfmode:
+                if self.imageengine.find_picture("tiaozhan"):
+                    self.mouseengine.clickdefault()
+                    self._currentCount += 1
+                    time.sleep(3)
         log.log("yuhun start")
 
 

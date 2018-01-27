@@ -31,16 +31,27 @@ class JuexingRobot:
         while(self._currentCount < self.countLimit):
             if False:
                 pass
-            elif self.imageengine.find_picture("kaishizhandou"):
-                self.mouseengine.clickdefault()
-                self._currentCount += 1
-                time.sleep(1)
             elif self.imageengine.find_picture("zhunbei"):
-                self.mouseengine.clickdefault()
+                self.mouseengine.clickadddefault(0,-60)
             elif self.imageengine.find_picture("win"):
                 self.mouseengine.clickdefault()
-            elif self.imageengine.find_picture("endbattle"):
+            elif self.imageengine.find_picture("dianjijixu"):
                 self.mouseengine.clickdefault()
+            if self.masterMode == baseenum.RobotMode.mastermode:
+                if self.imageengine.find_picture("queding"):
+                    self.mouseengine.clickdefault()
+                elif self.imageengine.find_picture("zidongkaishi") and self.imageengine.find_picture("kaishizhandou"):
+                    self.mouseengine.clickdefault()
+                    self._currentCount += 1
+                    time.sleep(3)
+                elif self.imageengine.find_picture("morenyaoqing"):
+                    self.mouseengine.clickdefault()
+            if self.masterMode == baseenum.RobotMode.slavemode:
+
+                if self.imageengine.find_picture("allyes"):
+                    self.mouseengine.clickdefault()
+                elif self.imageengine.find_picture("yes"):
+                    self.mouseengine.clickdefault()
         log.log("juexing start")
         return
 
