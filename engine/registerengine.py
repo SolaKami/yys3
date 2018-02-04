@@ -9,6 +9,7 @@ class RegisterEngine:
     lastlasty = 0
     lastpic = ''
     lastlastpic = ''
+    repeatmode = 1
 
     # ratex = 1.50
     # ratey = 1.50

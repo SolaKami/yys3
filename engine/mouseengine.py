@@ -11,6 +11,8 @@ class MouseEngine:
         self.registerengine = registerengine
 
     def repetverify(self):
+        if self.registerengine.repeatmode == 0:
+            return
         if self.registerengine.lastpic == self.registerengine.lastlastpic:
             self.repeatcount += 1
         else:

@@ -37,7 +37,7 @@ class TupoRobot:
                 self.mouseengine.clickadddefault(addx, addy)
                 time.sleep(3)
             elif self.imageengine.find_picture("zhunbei"):
-                self.mouseengine.clickdefault()
+                self.mouseengine.clickadddefault(0,-100)
             elif self.imageengine.find_picture("win"):
                 self.mouseengine.clickdefault()
             elif self.imageengine.find_picture("endbattle"):
