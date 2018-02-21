@@ -40,7 +40,7 @@ class TanSuoRobot:
             elif self.imageengine.find_picture("zhunbei"):
                 self.mouseengine.clickadddefault(0,-100)
             elif self.imageengine.find_picture("showspoils"):
-                self.mouseengine.clickadddefault(0, 500)
+                self.mouseengine.clickadddefault(0, 400)
             elif self.imageengine.find_picture("endbattle"):
                 self.mouseengine.clickdefault()
             elif self.imageengine.find_picture("baoxiang"):
