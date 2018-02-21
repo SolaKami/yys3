@@ -47,6 +47,8 @@ class TanSuoRobot:
                 self.mouseengine.clickdefault()
             elif self.imageengine.find_picture("ditubaoxiang"):
                 self.mouseengine.clickdefault()
+            elif self.imageengine.find_picture("jieshou"):
+                self.mouseengine.clickdefault()
             else:
                 if self.masterMode == baseenum.RobotMode.selfmode:
                     if self.imageengine.find_picture("tansuo"):
@@ -68,6 +70,7 @@ class TanSuoRobot:
                                 time.sleep(random.randint(5,29)/10)
                             self.mouseengine.clickdefault()
                             self._currentCount += 1
+                            log.log("current count %s" % self._currentCount)
                         else:
                             # 在章节页面，但是没有找到指定章节时，滚动一下
                             gundongengine.slide_up(self.registerengine.lastlastx,self.registerengine.lastlasty,-300)
