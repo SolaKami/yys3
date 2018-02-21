@@ -1,6 +1,7 @@
 from engine import imageengine
 from engine import mouseengine
 from engine import registerengine
+from engine import gundongengine
 from base import log
 import time
 
@@ -18,6 +19,8 @@ class YaoqifengyingRobot:
         self.registerengine = registerengine.RegisterEngine()
         self.imageengine = imageengine.ImageEngine(self.registerengine)
         self.mouseengine = mouseengine.MouseEngine(self.registerengine)
+
+        self.registerengine.repeatmode = 0
 
         return
 
@@ -69,6 +72,31 @@ class YaoqifengyingRobot:
                 self.mouseengine.clickdefault()
             elif self.imageengine.find_picture("endbattle"):
                 self.mouseengine.clickdefault()
+
+    def jiaru(self,limit):
+        self.countLimit = limit
+        addx = 750
+        addy = 36
+        while (self._currentCount < self.countLimit):
+            if False:
+                pass
+            elif self.imageengine.find_picture("jiaru"):
+                self.mouseengine.clickdefault()
+                self._currentCount += 1
+            elif self.imageengine.find_picture("homezudui"):
+                self.mouseengine.clickdefault()
+            elif self.imageengine.find_picture("yaoqifengying"):
+                time.sleep(0.5)
+                self.mouseengine.clickdefault()
+            elif self.imageengine.find_picture("zhunbei"):
+                self.mouseengine.clickdefault()
+            elif self.imageengine.find_picture("win"):
+                self.mouseengine.clickdefault()
+            elif self.imageengine.find_picture("endbattle"):
+                self.mouseengine.clickdefault()
+            elif self.imageengine.find_picture("juexinglei"):
+                gundongengine.slide_up(self.registerengine.lastx, self.registerengine.lasty, 100)
+
 
     def startshiju(self):
         while (self._currentCount < self.countLimit):

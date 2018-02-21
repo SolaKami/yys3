@@ -62,3 +62,21 @@ class YuhunRobot:
 
 
 
+
+    def yeyuanhuo(self):
+        while (self._currentCount < self.countLimit):
+            if False:
+                pass
+            elif self.imageengine.find_picture("zhunbei"):
+                self.mouseengine.clickadddefault(0, -60)
+            elif self.imageengine.find_picture("win"):
+                self.mouseengine.clickdefault()
+            elif self.imageengine.find_picture("dianjijixu"):
+                self.mouseengine.clickdefault()
+            elif self.imageengine.find_picture("tiaozhan"):
+                time.sleep(5)
+                self.mouseengine.clickdefault()
+
+
+
+
