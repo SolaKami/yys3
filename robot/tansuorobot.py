@@ -63,9 +63,9 @@ class TanSuoRobot:
                         if self.imageengine.find_picture("zhangjie%s"%(self.zhangjie)):
                             # 每打3把，暂停30秒
                             if self._currentCount > 1 and self._currentCount%3 == 0:
-                                time.sleep(random.randint(19,59)/10)
+                                time.sleep(random.randint(5,39)/10)
                             else:
-                                time.sleep(random.randint(9,49)/10)
+                                time.sleep(random.randint(5,29)/10)
                             self.mouseengine.clickdefault()
                             self._currentCount += 1
                         else:
@@ -80,7 +80,7 @@ class TanSuoRobot:
                     # 没有找到敌人时，但是又在副本里面时走一步
                     elif self.imageengine.find_picture("suodingchuzhan"):
                         self.mouseengine.clickadddefault(0, -80)
-                        time.sleep(random.randint(5,20)/10)
+                        time.sleep(random.randint(1,9)/10)
         log.log("tansuo end")
 
     def start(self):
