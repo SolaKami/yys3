@@ -4,6 +4,7 @@ from PIL import ImageGrab
 import numpy as np
 from base import log
 from base import baseenum
+import random
 
 class ImageEngine:
 
@@ -53,8 +54,13 @@ class ImageEngine:
                 y = int(top_left[1])
 
                 #compute click point
-                x = int(top_left[0] + w / 2)
-                y = int(top_left[1] + h / 2)
+                randomx1 = int(w/10)
+                randomx2 = w - randomx1
+                randomy1 = int(h/10)
+                randomy2 = h - randomy1
+
+                x = int(top_left[0] + random.randint(randomx1,randomx2))
+                y = int(top_left[1] + random.randint(randomy1,randomy2))
 
 
                 # resize location if macos
