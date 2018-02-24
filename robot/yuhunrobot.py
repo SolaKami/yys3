@@ -37,6 +37,8 @@ class YuhunRobot:
                 self.mouseengine.clickdefault()
             elif self.imageengine.find_picture("dianjijixu"):
                 self.mouseengine.clickdefault()
+            elif self.imageengine.find_picture("jieshou"):
+                self.mouseengine.clickdefault()
             if self.masterMode == baseenum.RobotMode.mastermode:
                 if self.imageengine.find_picture("queding"):
                     self.mouseengine.clickdefault()

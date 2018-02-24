@@ -29,6 +29,8 @@ class TupoRobot:
         while (self._currentCount < self.countLimit):
             if False:
                 pass
+            elif self.imageengine.find_picture("jieshou"):
+                self.mouseengine.clickdefault()
             elif self.imageengine.find_picture("jingong"):
                 self.mouseengine.clickdefault()
                 self._currentCount += 1

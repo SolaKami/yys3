@@ -7,7 +7,7 @@ win32gui.SetForegroundWindow(hwnd)
 
 time.sleep(3)
 
-robot1 = tansuorobot.TanSuoRobot(100, 17)
+robot1 = tansuorobot.TanSuoRobot(100, 16)
 
 # robot1.start()
 robot1.tansuo()

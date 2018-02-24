@@ -31,6 +31,8 @@ class JuexingRobot:
         while(self._currentCount < self.countLimit):
             if False:
                 pass
+            elif self.imageengine.find_picture("jieshou"):
+                self.mouseengine.clickdefault()
             elif self.imageengine.find_picture("zhunbei"):
                 self.mouseengine.clickadddefault(0,-60)
             elif self.imageengine.find_picture("win"):
